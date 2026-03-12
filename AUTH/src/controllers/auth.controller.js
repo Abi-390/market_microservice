@@ -1,6 +1,6 @@
 const userModel = require("../models/user.model");
 
-async function registerUser(req, res) {
+async function registerUser(req, res) { // Extract user data from request body
   const {
     username,
     email,
