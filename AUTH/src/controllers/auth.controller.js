@@ -1,6 +1,6 @@
 const userModel = require("../models/user.model");
 
-async function registerUser(req, res) { // Extract user data from request body
+async function registerUser(req, res) {
   const {
     username,
     email,
@@ -8,3 +8,5 @@ async function registerUser(req, res) { // Extract user data from request body
     fullName: { firstName, lastName },
   } = req.body;
 }
+
+module.exports = { registerUser };
