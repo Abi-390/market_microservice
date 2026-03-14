@@ -48,7 +48,7 @@ async function registerUser(req, res) {
   res.cookie("token", token, {
     httpOnly: true,
     secure: true, // client side js cannot access the cookie, cookie will only be sent over HTTPS
-    sameSite: "strict", // to prevent CSRF attacks
+    sameSite: "strict", // to prevent CSRF attacks , CSRF attacks are basically when an attacker tricks a user into making a request to a different website where the user is authenticated, by setting sameSite to strict, the cookie will only be sent for requests originating from the same site, so if an attacker tries to make a request from a different site, the cookie will not be sent and the request will be rejected by the server
     maxAge: 24 * 60 * 60 * 1000, // 1 day
   });
 
