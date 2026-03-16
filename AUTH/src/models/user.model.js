@@ -23,7 +23,7 @@ const userSchema = new mongoose.Schema({
 
   password: {
     type: String,
-    select : false, // so that when we query for user, password will not be included in the result(frontend) by default, we can explicitly include it when needed using .select('+password') in our queries
+    // select : false, // so that when we query for user, password will not be included in the result(frontend) by default, we can explicitly include it when needed using .select('+password') in our queries
   },
 
   fullName: {
