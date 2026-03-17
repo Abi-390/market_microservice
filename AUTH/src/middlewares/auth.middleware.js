@@ -10,7 +10,7 @@ const authMiddleware = (req, res, next) => {
 
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
-    req.user = decoded; // ✅ THIS FIXES YOUR ERROR
+    req.user = decoded; // This fixes id undefined issue in currentUser controller
 
     next();
   } catch (err) {
