@@ -112,4 +112,24 @@ async function loginUser(req,res){
     });
   }
 
-module.exports = { registerUser, loginUser };
+async function currentUser(req, res) {
+  const user = await userModel.findById(req.user.id);
+
+  if (!user) {
+    return res.status(404).json({ message: "User not found" });
+  }
+
+  res.status(200).json({
+    message: "Current user retrieved successfully",
+    user: {
+      id: user._id,
+      username: user.username,
+      email: user.email,
+      fullName: user.fullName,
+      role: user.role,
+      addresses: user.addresses,
+    },
+  });
+}
+
+module.exports = { registerUser, loginUser, currentUser };
